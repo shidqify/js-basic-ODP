@@ -89,6 +89,16 @@ Print `student`'s city.
 
 ```javascript
 // your code here
+const student = {
+  name: "Alice",
+  grade: 90,
+  address: {
+    city: "Jakarta",
+    country: "Indonesia"
+  }
+}
+
+console.log(student.address.city);
 ```
 
 ---
