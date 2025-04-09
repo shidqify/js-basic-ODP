@@ -71,6 +71,7 @@ Remove the first element from `fruits`.
 
 ```javascript
 // your code here
+fruits.shift()
 ```
 
 ---
