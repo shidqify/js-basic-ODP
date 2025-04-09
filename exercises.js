@@ -1,5 +1,6 @@
 const lotBilling = ( vhcType, duration) => {
   let total = 0, firstPrice, hrPrice, extraChrg;
+  const HOUR_ONE_DAY = 24;
 
   duration = Math.ceil(duration);
 
@@ -19,7 +20,7 @@ const lotBilling = ( vhcType, duration) => {
   }
 
   total += ((duration - 1) * hrPrice) + firstPrice
-  if (duration > 24) total += extraChrg;
+  if (duration > HOUR_ONE_DAY) total += extraChrg;
 
   return total;
 }
