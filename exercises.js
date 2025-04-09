@@ -1,26 +1,24 @@
-const lotBilling = ( vhcType, duration) => {
-  let total = 0, firstPrice, hrPrice, extraChrg;
+const pricing = {
+  "Car": {
+    firstPrice: 5000,
+    hrPrice: 3000,
+    extraChrg: 50000,
+  },
+  "Bike": {
+    firstPrice: 2000,
+    hrPrice: 1000,
+    extraChrg: 20000,
+  }
+}
+
+const lotBilling = ( vhcType, duration ) => {
+  let total = 0;
   const HOUR_ONE_DAY = 24;
 
   duration = Math.ceil(duration);
 
-  switch (vhcType) {
-    case "Car":
-      firstPrice = 5000
-      hrPrice = 3000
-      extraChrg = 50000
-      break;
-    case "Bike":
-      firstPrice = 2000
-      hrPrice = 1000
-      extraChrg = 20000
-      break;
-    default:
-      break;
-  }
-
-  total += ((duration - 1) * hrPrice) + firstPrice
-  if (duration > HOUR_ONE_DAY) total += extraChrg;
+  total += ((duration - 1) * pricing[vhcType].hrPrice) + pricing[vhcType].firstPrice
+  if (duration > HOUR_ONE_DAY) total += pricing[vhcType].extraChrg;
 
   return total;
 }
